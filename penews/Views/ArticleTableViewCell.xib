@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="185" id="KGk-i7-Jjw" customClass="ArticleTableViewCell" customModule="penews" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSo-UA-QKM" customClass="LikeButton" customModule="penews" customModuleProvider="target">
+                        <rect key="frame" x="272" y="0.0" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="nNU-gQ-iBg"/>
+                            <constraint firstAttribute="width" constant="40" id="zK3-Y1-JUR"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="heart_outline_24pt"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weV-pM-dBY">
+                        <rect key="frame" x="16" y="12" width="45.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="485-Xa-WuU">
+                        <rect key="frame" x="16" y="37" width="288" height="19.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iot-hK-IHp">
+                        <rect key="frame" x="16" y="64.5" width="180" height="72"/>
+                        <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" systemColor="systemGrayColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="5Xi-mj-06b">
+                        <rect key="frame" x="204" y="64.5" width="100" height="100"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ljl-RP-z6z">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="5WC-u9-oTb"/>
+                                    <constraint firstAttribute="width" constant="100" id="669-2b-R7Q"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inP-im-pYi">
+                        <rect key="frame" x="16" y="150" width="55" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="Iot-hK-IHp" firstAttribute="top" secondItem="485-Xa-WuU" secondAttribute="bottom" constant="8" id="0Ao-JD-0bi"/>
+                    <constraint firstItem="5Xi-mj-06b" firstAttribute="leading" secondItem="Iot-hK-IHp" secondAttribute="trailing" constant="8" id="4VR-7A-cAw"/>
+                    <constraint firstItem="rSo-UA-QKM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="weV-pM-dBY" secondAttribute="trailing" id="57j-65-cTZ"/>
+                    <constraint firstItem="inP-im-pYi" firstAttribute="bottom" secondItem="5Xi-mj-06b" secondAttribute="bottom" id="I0n-pm-dEB"/>
+                    <constraint firstItem="485-Xa-WuU" firstAttribute="leading" secondItem="weV-pM-dBY" secondAttribute="leading" id="Iqg-Us-F4R"/>
+                    <constraint firstItem="5Xi-mj-06b" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="M4e-Iv-9cU"/>
+                    <constraint firstItem="weV-pM-dBY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Pai-Z4-ju5"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="5Xi-mj-06b" secondAttribute="bottom" constant="8" id="Uf7-Nn-pLg"/>
+                    <constraint firstItem="inP-im-pYi" firstAttribute="leading" secondItem="Iot-hK-IHp" secondAttribute="leading" id="Z8r-XQ-MWH"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="5Xi-mj-06b" secondAttribute="bottom" priority="250" constant="8" id="aIl-Ze-mKT"/>
+                    <constraint firstItem="5Xi-mj-06b" firstAttribute="top" secondItem="485-Xa-WuU" secondAttribute="bottom" constant="8" id="eO8-mQ-O3m"/>
+                    <constraint firstItem="5Xi-mj-06b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="inP-im-pYi" secondAttribute="trailing" constant="8" id="hnX-km-39S"/>
+                    <constraint firstItem="rSo-UA-QKM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ngr-C2-3Za"/>
+                    <constraint firstItem="rSo-UA-QKM" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="8" id="p8p-D2-eiD"/>
+                    <constraint firstItem="485-Xa-WuU" firstAttribute="top" secondItem="weV-pM-dBY" secondAttribute="bottom" constant="8" id="qE7-Qg-OMs"/>
+                    <constraint firstItem="Iot-hK-IHp" firstAttribute="leading" secondItem="485-Xa-WuU" secondAttribute="leading" id="sO3-p2-9G8"/>
+                    <constraint firstItem="inP-im-pYi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Iot-hK-IHp" secondAttribute="bottom" constant="12" id="sOY-eR-ugR"/>
+                    <constraint firstItem="weV-pM-dBY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="vjC-EZ-Cy2"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="485-Xa-WuU" secondAttribute="trailing" id="xHI-Vs-hcv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="articleImageView" destination="Ljl-RP-z6z" id="5aj-X7-bBs"/>
+                <outlet property="authorLabel" destination="inP-im-pYi" id="Ref-Dz-Px3"/>
+                <outlet property="descriptionLabel" destination="Iot-hK-IHp" id="pa3-Ai-Ld9"/>
+                <outlet property="likeButton" destination="rSo-UA-QKM" id="iHn-Le-3lK"/>
+                <outlet property="sourceLabel" destination="weV-pM-dBY" id="ZOv-FX-9Jv"/>
+                <outlet property="titleLabel" destination="485-Xa-WuU" id="a7K-jV-vWF"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="197.87946428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="heart_outline_24pt" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

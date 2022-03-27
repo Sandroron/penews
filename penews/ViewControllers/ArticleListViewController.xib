@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArticleListViewController" customModule="penews" customModuleProvider="target">
+            <connections>
+                <outlet property="emptyResultView" destination="I7A-iM-0gK" id="Ckk-Zy-yRN"/>
+                <outlet property="errorConnectionView" destination="e4D-qy-fNX" id="Pw3-x7-baM"/>
+                <outlet property="resultView" destination="a02-BE-ysx" id="jhR-Bo-PxC"/>
+                <outlet property="searchBar" destination="4h2-P4-MSF" id="LtV-5Z-Ooc"/>
+                <outlet property="stubView" destination="Jd9-bc-Fsc" id="61X-gT-zYm"/>
+                <outlet property="stubViewActivityIndicator" destination="Nzx-m8-PfA" id="G1u-tM-8pX"/>
+                <outlet property="view" destination="LeS-MU-Kcz" id="kRd-Mw-B4q"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="LeS-MU-Kcz">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a02-BE-ysx" userLabel="Result Table View">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <searchBar key="tableHeaderView" contentMode="redraw" id="4h2-P4-MSF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </searchBar>
+                </tableView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7A-iM-0gK" userLabel="Empty View">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="hhn-OI-brA">
+                            <rect key="frame" x="145.5" y="427.5" width="123.5" height="41.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdt-wo-j6a">
+                                    <rect key="frame" x="0.0" y="0.0" width="123.5" height="19.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKm-Vh-YmT">
+                                    <rect key="frame" x="4.5" y="11.5" width="114" height="30"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Try again / Reset"/>
+                                    <connections>
+                                        <action selector="onTryAgainButtonTap:" destination="-1" eventType="touchUpInside" id="ftz-sK-Hg6"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="hhn-OI-brA" firstAttribute="centerX" secondItem="I7A-iM-0gK" secondAttribute="centerX" id="7cf-FI-79W"/>
+                        <constraint firstItem="hhn-OI-brA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="I7A-iM-0gK" secondAttribute="leadingMargin" id="Edf-oJ-tMT"/>
+                        <constraint firstItem="hhn-OI-brA" firstAttribute="centerY" secondItem="I7A-iM-0gK" secondAttribute="centerY" id="Mox-0N-WEd"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4D-qy-fNX" userLabel="Error View">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="5BT-NM-XQ3">
+                            <rect key="frame" x="150" y="427.5" width="114.5" height="41.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News not found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITA-FV-Lle">
+                                    <rect key="frame" x="0.0" y="0.0" width="114.5" height="19.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8i-tO-Al4">
+                                    <rect key="frame" x="0.0" y="11.5" width="114" height="30"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Try again / Reset"/>
+                                    <connections>
+                                        <action selector="onTryAgainButtonTap:" destination="-1" eventType="touchUpInside" id="lzT-Xm-ScK"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="5BT-NM-XQ3" firstAttribute="centerX" secondItem="e4D-qy-fNX" secondAttribute="centerX" id="FDG-sZ-z3b"/>
+                        <constraint firstItem="5BT-NM-XQ3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e4D-qy-fNX" secondAttribute="leadingMargin" id="Tkn-C9-unz"/>
+                        <constraint firstItem="5BT-NM-XQ3" firstAttribute="centerY" secondItem="e4D-qy-fNX" secondAttribute="centerY" id="au7-N9-TtX"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jd9-bc-Fsc" userLabel="Stub View">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Nzx-m8-PfA">
+                            <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            <color key="color" systemColor="labelColor"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="Nzx-m8-PfA" firstAttribute="centerY" secondItem="Jd9-bc-Fsc" secondAttribute="centerY" id="opx-1D-roL"/>
+                        <constraint firstItem="Nzx-m8-PfA" firstAttribute="centerX" secondItem="Jd9-bc-Fsc" secondAttribute="centerX" id="vis-eP-HVy"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="ZPD-Gv-Brl"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="e4D-qy-fNX" secondAttribute="bottom" id="4OY-GV-PKa"/>
+                <constraint firstItem="I7A-iM-0gK" firstAttribute="top" secondItem="LeS-MU-Kcz" secondAttribute="top" id="4yI-8J-sAy"/>
+                <constraint firstItem="Jd9-bc-Fsc" firstAttribute="leading" secondItem="ZPD-Gv-Brl" secondAttribute="leading" id="CS7-dL-9ld"/>
+                <constraint firstItem="I7A-iM-0gK" firstAttribute="trailing" secondItem="LeS-MU-Kcz" secondAttribute="trailing" id="GJe-z8-LV6"/>
+                <constraint firstItem="Jd9-bc-Fsc" firstAttribute="top" secondItem="LeS-MU-Kcz" secondAttribute="top" id="Gqb-FE-ZHf"/>
+                <constraint firstItem="a02-BE-ysx" firstAttribute="top" secondItem="LeS-MU-Kcz" secondAttribute="top" id="IUG-gM-WRK"/>
+                <constraint firstAttribute="bottom" secondItem="a02-BE-ysx" secondAttribute="bottom" id="L5Y-Wo-7wX"/>
+                <constraint firstItem="Jd9-bc-Fsc" firstAttribute="trailing" secondItem="ZPD-Gv-Brl" secondAttribute="trailing" id="L7G-2p-pAQ"/>
+                <constraint firstItem="a02-BE-ysx" firstAttribute="trailing" secondItem="LeS-MU-Kcz" secondAttribute="trailing" id="a0J-NW-RGF"/>
+                <constraint firstItem="I7A-iM-0gK" firstAttribute="leading" secondItem="LeS-MU-Kcz" secondAttribute="leading" id="hc6-DA-Sma"/>
+                <constraint firstItem="a02-BE-ysx" firstAttribute="leading" secondItem="LeS-MU-Kcz" secondAttribute="leading" id="jqQ-RH-6H9"/>
+                <constraint firstItem="e4D-qy-fNX" firstAttribute="trailing" secondItem="LeS-MU-Kcz" secondAttribute="trailing" id="m4S-iz-jDa"/>
+                <constraint firstAttribute="bottom" secondItem="I7A-iM-0gK" secondAttribute="bottom" id="qTV-nM-uK3"/>
+                <constraint firstItem="e4D-qy-fNX" firstAttribute="leading" secondItem="LeS-MU-Kcz" secondAttribute="leading" id="r28-oC-0js"/>
+                <constraint firstItem="e4D-qy-fNX" firstAttribute="top" secondItem="LeS-MU-Kcz" secondAttribute="top" id="ueu-9N-ef7"/>
+                <constraint firstAttribute="bottom" secondItem="Jd9-bc-Fsc" secondAttribute="bottom" id="un2-ZZ-v2n"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="140.625"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
