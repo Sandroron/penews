@@ -9,7 +9,8 @@ target 'penews' do
   pod 'AlamofireImage',                 '~> 3.3'
   pod 'AlamofireObjectMapper',          '~> 5.2'
   pod 'RealmSwift'
-  pod 'RxSwift',                        '~> 4.0'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
   target 'penewsTests' do
     inherit! :search_paths

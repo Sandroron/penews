@@ -44,14 +44,14 @@ class ListDataAdapter<P: NoViewLoadingPresenter, T: Mappable, W: Wrapper<T>>: Re
         // In this case, you need to show an empty state (404).
         if request == nil {
             
-            stateManager.state.value = .empty
+            stateManager.state.accept(.empty)
             return
         }
         
         // Loading has not completed yet, need to show the stub.
         if isLoading {
             
-            stateManager.state.value = .stub
+            stateManager.state.accept(.stub)
             return
         }
         
@@ -67,16 +67,16 @@ class ListDataAdapter<P: NoViewLoadingPresenter, T: Mappable, W: Wrapper<T>>: Re
                     self.objects = objects
                 }
                 
-                stateManager.state.value = .result
+                stateManager.state.accept(.result)
             } else {
                 clearObjectIfNeeded()
-                stateManager.state.value = .empty
+                stateManager.state.accept(.empty)
             }
             
         } else {
             
             clearObjectIfNeeded()
-            stateManager.state.value = .error
+            stateManager.state.accept(.error)
         }
     }
     

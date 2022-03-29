@@ -6,13 +6,13 @@
 //
 
 import RxSwift
+import RxCocoa
 
 class LoadingMoreStateManager<P: NoViewLoadingMorePresenter> {
     
     // MARK: - Properties
     
-    // state обернут в Variable (RxSwift), чтобы можно было оформить подписку на его изменения
-    private(set) var state: Variable<LoadingMoreState>
+    private(set) var state: BehaviorRelay<LoadingMoreState>
     
     
     // MARK: - Private properties
@@ -26,7 +26,7 @@ class LoadingMoreStateManager<P: NoViewLoadingMorePresenter> {
     
     init(presenter: P, state: LoadingMoreState = .loadMoreResult /*.stub*/) {
         self.presenter = presenter
-        self.state = Variable(state)
+        self.state = BehaviorRelay(value: state)
     }
     
     

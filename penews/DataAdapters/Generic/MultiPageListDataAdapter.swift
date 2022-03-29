@@ -54,7 +54,7 @@ class MultiPageListDataAdapter<LP: NoViewLoadingPresenter, LMP: NoViewLoadingMor
         
         // Loading did not even start (most likely due to incorrect input data).
         if request == nil {
-            loadingStateManager.state.value = .empty // В этом случае нужно показывать пустое состояние (404), независимо от keepOldObjects.
+            loadingStateManager.state.accept(.empty)
             return
         }
         
@@ -263,9 +263,9 @@ class MultiPageListDataAdapter<LP: NoViewLoadingPresenter, LMP: NoViewLoadingMor
     func applyEmptyState() {
         
         if keepOldObjects {
-            loadingMoreStateManager.state.value = .loadMoreEmpty
+            loadingMoreStateManager.state.accept(.loadMoreEmpty)
         } else {
-            loadingStateManager.state.value = .empty
+            loadingStateManager.state.accept(.empty)
         }
     }
     
@@ -273,10 +273,10 @@ class MultiPageListDataAdapter<LP: NoViewLoadingPresenter, LMP: NoViewLoadingMor
         
         if keepOldObjects {
             
-            loadingMoreStateManager.state.value = .loadMoreError
+            loadingMoreStateManager.state.accept(.loadMoreError)
         } else {
             
-            loadingStateManager.state.value = .error
+            loadingStateManager.state.accept(.error)
         }
     }
     
@@ -284,11 +284,11 @@ class MultiPageListDataAdapter<LP: NoViewLoadingPresenter, LMP: NoViewLoadingMor
         
         if keepOldObjects {
             
-            loadingMoreStateManager.state.value = .loadMoreResult
+            loadingMoreStateManager.state.accept(.loadMoreResult)
         } else {
             
-            loadingMoreStateManager.state.value = .loadMoreResult
-            loadingStateManager.state.value = .result
+            loadingMoreStateManager.state.accept(.loadMoreResult)
+            loadingStateManager.state.accept(.result)
         }
     }
     
@@ -296,10 +296,10 @@ class MultiPageListDataAdapter<LP: NoViewLoadingPresenter, LMP: NoViewLoadingMor
         
         if keepOldObjects {
             
-            loadingMoreStateManager.state.value = .loadMoreStub
+            loadingMoreStateManager.state.accept(.loadMoreStub)
         } else {
             
-            loadingStateManager.state.value = .stub
+            loadingStateManager.state.accept(.stub)
         }
     }
 }
