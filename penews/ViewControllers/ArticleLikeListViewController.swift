@@ -37,7 +37,7 @@ class ArticleLikeListViewController: UIViewController,
 
         resultTableView.dataSource = self
         resultTableView.delegate = self
-        resultTableView.estimatedRowHeight = 185.0 // TODO: Constants
+        resultTableView.estimatedRowHeight = TableView.Cell.Height.article
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -89,7 +89,7 @@ class ArticleLikeListViewController: UIViewController,
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 185.0 // TableView.Cell.Height.article
+        return TableView.Cell.Height.article
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

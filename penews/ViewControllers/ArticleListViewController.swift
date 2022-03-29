@@ -15,6 +15,7 @@ class ArticleListViewController: UIViewController,
     // MARK: - Constants
     
     private let dataBaseManager = DataBaseManagerImplementation()
+    private let sort = "publishedAt"
     
     
     // MARK: - Outlets
@@ -40,13 +41,12 @@ class ArticleListViewController: UIViewController,
 
     // MARK: - Computed properties
 
-    // Небольшие костыли, чтобы не приводить постоянно типы Presenter-а
     var resultTableView:            UITableView         { get { return resultView       as! UITableView }}
 
 
     // MARK: - Private properties
     
-    private var fethingMore = false // флаг разрешения подгрузки списка при прокрутке
+    private var fethingMore = false // flag for allowing fething for pagination
     
     private var dataAdapter: ArticleListDataAdapter!
     
@@ -68,7 +68,6 @@ class ArticleListViewController: UIViewController,
         
     }
     
-    private var sort: String = "publishedAt"
     private var isSortEnabled = false {
         
         didSet {
@@ -122,7 +121,7 @@ class ArticleListViewController: UIViewController,
 
         resultTableView.dataSource = self
         resultTableView.delegate = self
-        resultTableView.estimatedRowHeight = 185.0 // TODO: Constants
+        resultTableView.estimatedRowHeight = TableView.Cell.Height.article
         
         resultTableView.refreshControl = UIRefreshControl()
         resultTableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
@@ -135,16 +134,16 @@ class ArticleListViewController: UIViewController,
 
         resultTableView.tableFooterView = paginationView
         
-        filterBarButton = UIBarButtonItem(image: UIImage(named: "filter_24pt"), style: .plain, target: self, action: #selector(onFilterBarButtonTap))
-        sortBarButton = UIBarButtonItem(image: UIImage(named: "sort_24pt"), style: .plain, target: self, action: #selector(onSortBarButtonTap))
-        likeBarButton = UIBarButtonItem(image: UIImage(named: "heart_outline_24pt"), style: .plain, target: self, action: #selector(onLikeBarButtonTap))
+        filterBarButton = UIBarButtonItem(image: .filter,       style: .plain, target: self, action: #selector(onFilterBarButtonTap))
+        sortBarButton   = UIBarButtonItem(image: .sort,         style: .plain, target: self, action: #selector(onSortBarButtonTap))
+        likeBarButton   = UIBarButtonItem(image: .heartOutline, style: .plain, target: self, action: #selector(onLikeBarButtonTap))
         
         navigationController?.navigationBar.prefersLargeTitles = true
         
         navigationItem.rightBarButtonItems = [filterBarButton, sortBarButton]
         navigationItem.leftBarButtonItems = [likeBarButton]
         
-        navigationItem.title = "Top headlines" // "Sort by published at"
+        navigationItem.title = "Top headlines"
         
         sortBarButton.isEnabled = !(filter?.sources?.isEmpty ?? true)
         
@@ -183,7 +182,7 @@ class ArticleListViewController: UIViewController,
 
         if tableView == resultTableView {
             
-            return 1 // dataAdapter.pages?.count ?? 0
+            return 1 
         } else {
             
             fatalError("Unknown UITableView.")
@@ -194,7 +193,6 @@ class ArticleListViewController: UIViewController,
 
         if tableView == resultTableView {
             
-//            return dataAdapter.pages?[section].objects.count ?? 0
             return dataAdapter.objects?.count ?? 0
         } else {
             
@@ -203,7 +201,7 @@ class ArticleListViewController: UIViewController,
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 185.0 // TableView.Cell.Height.article
+        return TableView.Cell.Height.article
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -291,30 +289,6 @@ class ArticleListViewController: UIViewController,
 
     // MARK: - PaginatedScreenPresenter
 
-    func willShowEmptyResultView(dataAdapter: DataAdapter) {
-        
-        // Вид пустого состояния зависит того, искал ли пользователь что-либо.
-        // Если строка поиска пуста, то покажем стандартную ошибку,
-        // иначе – пустой результат поискового запроса.
-//        if !(filters?.isEmpty ?? true) || sort != Endpoint.PickOptions.KeyValue.SortPairs.articles.first!.value {
-//
-//            emptyResultAdView.actionButton.removeTarget(nil, action: nil, for: .allEvents)
-//
-//            emptyResultAdView.setup(actionButtonText: "aShowAll".localized())
-//            emptyResultAdView.actionButton.addTarget(self, action: #selector(onShowAllButtonTap(_:)), for: .touchUpInside)
-//
-//            emptyResultAdView.emptyDescriptionLabel.text = "mEmptySearch".localized()
-//        } else {
-//
-//            emptyResultAdView.actionButton.removeTarget(nil, action: nil, for: .allEvents)
-//
-//            emptyResultAdView.setup(actionButtonText: "aToSendFeedback".localized())
-//            emptyResultAdView.actionButton.addTarget(self, action: #selector(onFeedbackButtonTap(_:)), for: .touchUpInside)
-//
-//            emptyResultAdView.emptyDescriptionLabel.text = "mEmptyResultsContactSupportTeam".localized()
-//        }
-    }
-
     func willShowResultView(dataAdapter: DataAdapter) {
         
         fethingMore = false
@@ -340,28 +314,6 @@ class ArticleListViewController: UIViewController,
         dataAdapter.configure(q: q, filter: articleListFilter)
         dataAdapter.loadFirstPage()
     }
-    
-    
-    // MARK: - Methods
-    
-//    func performSearchAction() {
-//
-//        resultTableView.setContentOffset(.zero, animated: false)
-//
-//        if !(filters?.isEmpty ?? true) || sort != Endpoint.PickOptions.KeyValue.SortPairs.articles.first!.value {
-//
-//            dataAdapter.configure(q: nil, sort: sort, filters: filters)
-//            dataAdapter.loadFirstPage()
-//
-//            showStubView(dataAdapter: dataAdapter)
-//        } else {
-//
-//            dataAdapter.configure(articlesAlias: listAlias)
-//            dataAdapter.loadFirstPage()
-//
-//            showStubView(dataAdapter: dataAdapter)
-//        }
-//    }
 
 
     // MARK: - Action methods

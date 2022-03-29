@@ -60,6 +60,7 @@
 		E0D5FEB727EF375100D0921C /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5FEB627EF375100D0921C /* ArticleViewController.swift */; };
 		E0D5FEB927EF4F6400D0921C /* ArticleListFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0D5FEB827EF4F6400D0921C /* ArticleListFilterViewController.xib */; };
 		E0D5FEBB27EF519C00D0921C /* ArticleListFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5FEBA27EF519C00D0921C /* ArticleListFilterViewController.swift */; };
+		E0FF86A927F37048000D02E5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF86A827F37048000D02E5 /* UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		E0D5FEB627EF375100D0921C /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		E0D5FEB827EF4F6400D0921C /* ArticleListFilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleListFilterViewController.xib; sourceTree = "<group>"; };
 		E0D5FEBA27EF519C00D0921C /* ArticleListFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListFilterViewController.swift; sourceTree = "<group>"; };
+		E0FF86A827F37048000D02E5 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		E9E82BD625B2A98CE61657E4 /* Pods_penews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_penews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -328,6 +330,7 @@
 		E05C0DAE27EE2EE700DDE50D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E0FF86A827F37048000D02E5 /* UIImage.swift */,
 				E059627B27EE06AC000A66FA /* UITableView.swift */,
 				E059628327EE1234000A66FA /* UIView.swift */,
 				E059628127EE11C9000A66FA /* UIViewController.swift */,
@@ -631,6 +634,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0D5FEBB27EF519C00D0921C /* ArticleListFilterViewController.swift in Sources */,
+				E0FF86A927F37048000D02E5 /* UIImage.swift in Sources */,
 				E059628627EE1791000A66FA /* ScreenPresenter.swift in Sources */,
 				E059628027EE0853000A66FA /* PaginationView.swift in Sources */,
 				E059628C27EE1842000A66FA /* PaginatedScreenPresenter.swift in Sources */,

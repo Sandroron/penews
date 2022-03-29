@@ -7,6 +7,8 @@
 
 import UIKit
 
+// TableView.Cell.Height.article
+
 enum Api {
     
     static let baseUrl = "https://newsapi.org/v2"
@@ -32,4 +34,15 @@ enum LoadingMoreState {
 enum Nib {
     
     static var paginationView: UINib { get { return UINib(nibName: "PaginationView", bundle: nil) }}
+}
+
+enum TableView {
+    
+    enum Cell {
+        
+        enum Height {
+            
+            static let article = 185.0 
+        }
+    }
 }

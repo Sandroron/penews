@@ -24,8 +24,8 @@ final class ArticleTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
+        // Initialization code
         articleImageView.layer.cornerRadius = 4.0
     }
     
@@ -35,18 +35,6 @@ final class ArticleTableViewCell: UITableViewCell {
     func setup(withArticle article: Article?, isLiked: Bool) {
         
         guard let article = article else { return }
-        
-        sourceLabel.text = article.source?.name ?? "Unknown source"
-        titleLabel.text = article.title ?? "No title"
-        descriptionLabel.text = article.description ?? ""
-        
-        if let author = article.author {
-            
-            authorLabel.text = "by \(author)"
-        } else {
-            
-            authorLabel.text = nil
-        }
         
         articleImageView.image = nil
         
@@ -58,6 +46,19 @@ final class ArticleTableViewCell: UITableViewCell {
         } else {
             
             articleImageView.isHidden = true
+        }
+        
+        sourceLabel.text = article.source?.name ?? "Unknown source"
+        titleLabel.text = article.title ?? "No title"
+        descriptionLabel.text = article.description ?? ""
+        
+        if let author = article.author,
+           !author.isEmpty {
+            
+            authorLabel.text = "by \(author)"
+        } else {
+            
+            authorLabel.text = nil
         }
         
         likeButton.isLiked = isLiked
